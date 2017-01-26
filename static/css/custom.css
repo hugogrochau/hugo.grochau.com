@@ -5,9 +5,14 @@
     border-radius: 50%;
 }
 
-section.header-home .container .logo {
-    width: 150px;
-    height: 150px;
+@media (min-width: 600px) {
+
+    section.header-home .container .logo {
+        max-height: 180px;
+        max-width: 180px;
+        height: 180px;
+        width: 180px;
+    }
 }
 
 section.header .container .content .name {
@@ -15,6 +20,9 @@ section.header .container .content .name {
 }
 
 section.header-home .container .content .name {
-    font-size: 28px;
+    font-size: 32px;
 }
 
+.main {
+    min-height: 200px;
+}
