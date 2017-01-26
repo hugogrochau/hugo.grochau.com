@@ -1,29 +1,27 @@
+author = "Hugo Grochau"
 baseurl = "http://hugo.grochau.com/"
-theme = "cocoa-eh"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
+disqusshortname = ""
+enableEmoji = true
 languageCode = "en-US"
 layoutdir = "layouts"
-publishdir = "public"
-author = "Hugo Grochau"
-title = "Hugo Grochau"
-disqusshortname = ""
 pluralizelisttitles = false
-enableEmoji = true
-
-[permalinks]
-blog = "blog/:slug/"
-
+publishdir = "public"
+theme = "cocoa-eh"
+title = "Hugo Grochau"
 [params]
 dateform = "Jan 2, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Hugo Grochau"
-logofile = "img/profile.jpg"
+email = "hugo@grochau.com"
 faviconfile = "img/profile.jpg"
+github = "//github.com/hugogrochau"
 highlightjs = true
 lang = "en"
-github = "//github.com/hugogrochau"
-email = "hugo@grochau.com"
 linkedin = "//www.linkedin.com/in/hugogrochau"
+logofile = "img/profile.jpg"
 twitter = "//twitter.com/hugogrochau"
+[permalinks]
+blog = "blog/:slug/"
