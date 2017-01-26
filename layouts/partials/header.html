@@ -5,10 +5,10 @@
 
 <body lang="{{ .Site.Params.lang }}">
 
-{{ if .IsPage }}
-<section class="header"> 
+{{ if .IsHome }}
+<section class="header header-home">
 {{ else }}
-<section class="header header-home"> 
+<section class="header">
 {{ end }}
     <div class="container">
         <a href="{{ .Site.BaseURL }}"><img class="logo" src="{{ .Site.Params.logofile | absURL }}" /></a>
@@ -19,16 +19,14 @@
                     {{ if ne (len (where .Site.RegularPages "Section" "blog")) 0 }}
                         <a href="{{ .Site.BaseURL }}blog/"><li>Blog</li></a>
                     {{ end }}
-                    {{ range .Site.Sections }}
-                        {{ range first 1 (where .Pages "Section" "ne" "")}}
-                            {{ if ne .Section "blog"}}
-                            <a href="{{ .Section | urlize }}"><li>{{ .Section }}</li></a>
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
                     {{ range where .Site.RegularPages "Section" ""}}
                         {{ if ne .Title "Home"}}
                             <a href="{{ .Permalink }}"><li>{{ .Title }}</li></a>
+                        {{ end }}
+                    {{ end }}
+                    {{ range .Site.Sections }}
+                        {{ range first 1 (where .Pages "Section" "ne" "")}}
+                            <a href="{{ .Section | urlize }}"><li>{{ .Section }}</li></a>
                         {{ end }}
                     {{ end }}
                 </ul>
