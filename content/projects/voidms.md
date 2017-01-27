@@ -1,5 +1,5 @@
 +++
-date = "2008-12-01T00:00:00+00:00"
+date = "2008-08-01T00:00:00+00:00"
 description = "A MapleStory v62 private server"
 tags = ["projects"]
 title = "VoidMS"

@@ -1,5 +1,5 @@
 +++
-date = "2015-12-01T00:00:00+00:00"
+date = "2015-06-01T00:00:00+00:00"
 description = "A networked multiplayer Risk implementation"
 tags = ["projects"]
 title = "Risk (Tabletop game)"
