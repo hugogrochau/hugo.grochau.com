@@ -23,5 +23,6 @@ lang = "en"
 linkedin = "//www.linkedin.com/in/hugogrochau"
 logofile = "img/profile.jpg"
 twitter = "//twitter.com/hugogrochau"
+goodreads = "//www.goodreads.com/hugogrochau"
 [permalinks]
 blog = "blog/:slug/"

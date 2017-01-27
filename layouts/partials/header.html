@@ -57,11 +57,18 @@
             </a>
         {{ end }}
 
+        {{ if .Site.Params.goodreads }}
+        <a href="{{ .Site.Params.goodreads }}">
+          <i class="icon ion-ios-bookmarks"></i>
+        </a>
+        {{ end }}
+
         {{ if .Site.Params.email }}
             <a href="mailto:{{ .Site.Params.email }}">
                 <i class="icon ion-ios-email larger"></i>
             </a>
         {{ end }}
+
         </div>
     </div>
 </section>
