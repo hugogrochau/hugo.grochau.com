@@ -20,9 +20,9 @@ faviconfile = "img/profile.jpg"
 github = "//github.com/hugogrochau"
 highlightjs = true
 lang = "en"
-linkedin = "//www.linkedin.com/in/hugogrochau"
+linkedin = "//linkedin.com/in/hugogrochau"
 logofile = "img/profile.jpg"
-twitter = "//twitter.com/hugogrochau"
-goodreads = "//www.goodreads.com/hugogrochau"
+goodreads = "//goodreads.com/hugogrochau"
+keybase = "//keybase.io/hugogrochau"
 [permalinks]
 blog = "blog/:slug/"

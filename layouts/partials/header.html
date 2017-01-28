@@ -63,6 +63,12 @@
         </a>
         {{ end }}
 
+        {{ if .Site.Params.keybase }}
+        <a href="{{ .Site.Params.keybase }}">
+          <i class="icon ion-key"></i>
+        </a>
+        {{ end }}
+
         {{ if .Site.Params.email }}
             <a href="mailto:{{ .Site.Params.email }}">
                 <i class="icon ion-ios-email larger"></i>
