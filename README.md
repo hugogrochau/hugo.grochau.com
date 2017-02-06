@@ -6,5 +6,6 @@ Uses the hugo static site generater
 
 # Deploying
 * Install the Google Cloud SDK with `curl https://sdk.cloud.google.com | bash`
-* Copy env.template to .env and change the variables
+* Run `gcloud init` and configure your GCS bucket
+* Edit deploy.sh with your GCS bucket
 * Run deploy.sh
