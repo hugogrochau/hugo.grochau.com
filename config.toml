@@ -1,5 +1,5 @@
 author = "Hugo Grochau"
-baseurl = "http://hugo.grochau.com/"
+baseurl = "/"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"

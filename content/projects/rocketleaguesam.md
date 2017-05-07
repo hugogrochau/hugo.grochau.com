@@ -19,4 +19,4 @@ _[Source](https://github.com/hugogrochau/rocketleaguesam-api)_
 
 _[Documentation](http://hugogrochau.github.io/rocketleaguesam-api/)_
 
-![](img/rocketleaguesam.png)
+![](/img/rocketleaguesam.png)
