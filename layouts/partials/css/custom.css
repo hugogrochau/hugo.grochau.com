@@ -3,3 +3,13 @@
   max-width: 100px !important;
   border-radius: 50%;
 }
+
+.header nav ul li {
+  font-size: 14px !important;
+}
+
+@media (max-width: 450px) {
+  section.header .content {
+    width: 120px;
+  }
+}
