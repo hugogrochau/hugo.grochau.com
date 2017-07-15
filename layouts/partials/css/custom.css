@@ -13,3 +13,25 @@
     width: 120px;
   }
 }
+
+body,
+section.main .content .page-heading,
+section.main .container.f04 .content .num,
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-family: 'Raleway';
+}
+
+section.main .content .markdown {
+  font-family: 'Merriweather';
+}
+
+section.main .content .mardown code,
+section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono';
+}
+
