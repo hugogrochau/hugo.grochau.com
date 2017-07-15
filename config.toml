@@ -23,6 +23,6 @@ lang = "en"
 linkedin = "hugogrochau"
 logofile = "img/profile.jpg"
 goodreads = "hugogrochau"
-keybase = "hugogrochau"
+#keybase = "hugogrochau"
 [permalinks]
 blog = "blog/:slug/"
