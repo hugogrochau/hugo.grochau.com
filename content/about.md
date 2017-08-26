@@ -8,5 +8,6 @@ title = "About"
 * Past: [Liber](https://www.liberedu.com/), [sofacoding](http://www.sofacoding.com.br/)
 * Grew up in Perth, Australia :koala:
 * Now living in Rio :palm_tree:
+* Has a deep interest in futurism and emerging technologies
 * Has an unhealthy obsession with Linux and minimal software
 
