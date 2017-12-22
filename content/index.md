@@ -2,4 +2,4 @@
 title = "Home"
 +++
 
-_I'm a backend and frontend developer passionate about learning and building useful products_
+_I make things for humans, usually with code_
