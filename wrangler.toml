@@ -7,8 +7,8 @@ bucket = "./public"
 
 [[kv_namespaces]]
 binding = "CACHE"
-id = "your-kv-namespace-id"
-preview_id = "your-kv-namespace-preview-id"
+id = "0b906f4ad4b340fb875a949777cb1b81"
+preview_id = "204c75076874402ebd5d2113164c5baa"
 
 [vars]
 ENVIRONMENT = "production"
