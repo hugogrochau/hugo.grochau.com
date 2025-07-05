@@ -158,6 +158,11 @@ body.home {
   justify-content: center;
 }
 
+/* Header animation for transitioning from home to subpage */
+section.header {
+  transition: transform 0.8s ease-in-out;
+}
+
 .icon {
   text-rendering: geometricPrecision !important;
 }
@@ -166,6 +171,7 @@ section {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  transition: all 0.8s ease-in-out;
 }
 
 /* Home page sections should be centered */
