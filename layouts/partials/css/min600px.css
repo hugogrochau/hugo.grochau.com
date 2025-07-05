@@ -1,4 +1,5 @@
-body {
+/* Home page should be centered */
+body.home {
   justify-content: center;
 }
 .non-narrow.zero-top-spacing {

@@ -152,14 +152,25 @@ body {
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
 }
+
+/* Special layout for home page - centered content */
+body.home {
+  justify-content: center;
+}
+
 .icon {
   text-rendering: geometricPrecision !important;
 }
 section {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
+}
+
+/* Home page sections should be centered */
+body.home section {
+  align-items: center;
 }
 .container {
   display: flex;
