@@ -83,7 +83,7 @@ body {
   width: 100%;
   min-height: 100%;
   font-weight: 400;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   color: #111111;
   line-height: 1.6;
   text-rendering: optimizeLegibility !important;
@@ -143,6 +143,8 @@ section.header .content {
 section.header .container .logo {
   max-width: 100px;
   margin-left: -2em;
+  margin-right: 20px;
+  border-radius: 50%;
 }
 section.header .name {
   padding-top: 20px;
@@ -153,7 +155,6 @@ section.header .name {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  color: #333333;
   color: #555555;
 }
 section.header nav {
@@ -654,26 +655,33 @@ section.main .content .navigation a {
   color: #313537;
 }
 
-/* Fonts */
+/* Custom Fonts and Responsive Styles */
 
-.wf-raleway-n4-active body, 
-.wf-raleway-n4-active section.header nav ul li,
-.wf-raleway-n7-active section.main .content .page-heading,
-.wf-raleway-n2-active section.main .container.f04 .content .num,
-.wf-raleway-n7-active section.main .content .markdown h1,
-.wf-raleway-n7-active section.main .content .markdown h2,
-.wf-raleway-n7-active section.main .content .markdown h3,
-.wf-raleway-n7-active section.main .content .markdown h4,
-.wf-raleway-n7-active section.main .content .markdown h5,
-.wf-raleway-n7-active section.main .content .markdown h6 {
-  font-family: 'Raleway';
+/* Mobile responsive adjustments */
+@media (max-width: 450px) {
+  section.header .content {
+    width: 120px;
+  }
 }
 
-.wf-merriweather-n3-active section.main .content .markdown {
-  font-family: 'Merriweather';
+/* Font family overrides */
+body,
+section.main .content .page-heading,
+section.main .container.f04 .content .num,
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
-.wf-ubuntu-mono-n4-active section.main .content .markdown code,
-.wf-ubuntu-mono-n4-active section.main .content .markdown pre {
-  font-family: 'Ubuntu Mono';
+section.main .content .markdown {
+  font-family: 'Merriweather', 'Georgia', serif;
+}
+
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', monospace;
 }
