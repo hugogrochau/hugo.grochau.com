@@ -21,4 +21,8 @@ hugo --minify
 
 echo "✅ Build complete!"
 echo "📁 Static files are in ./public/"
-echo "🌐 Push to your repository to deploy via Cloudflare Pages"
+
+echo "📦 Installing wrangler for deployment..."
+npm install -g wrangler
+
+echo "🚀 Ready to deploy"
