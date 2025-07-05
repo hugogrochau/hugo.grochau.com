@@ -2,70 +2,70 @@
 
 <script>
   // Simple header position animation from home to subpages
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     // Only run animation logic if we're on the home page
     const isHomePage = document.body.classList.contains('home');
-    
+
     if (isHomePage) {
       // Add smooth transitions to internal links
-      const links = document.querySelectorAll('a[href^="/"], a[href^="' + window.location.origin + '"]');
-      
+      const links = document.querySelectorAll('a[href^="/"]:not(.no-redirect-animation), a[href^="' + window.location.origin + '"]:not(.no-redirect-animation)');
+
       // Function to calculate precise transform distance
       function calculateTransformDistance() {
         const isDesktop = window.innerWidth >= 600;
         const viewportHeight = window.innerHeight;
         const header = document.querySelector('section.header');
-        
+
         if (!header) return 0;
-        
+
         // Get the actual header dimensions
         const headerRect = header.getBoundingClientRect();
         const headerHeight = headerRect.height;
-        
+
         // On home page: header is vertically centered, so its top position is:
         // (viewport center) - (half of header height)
         const homeHeaderTopPosition = (viewportHeight / 2) - (headerHeight / 2);
-        
+
         // On subpage: header top position is at padding-top (matches CSS values)
-        const subpageHeaderTopPosition = isDesktop ? (60-2) : (10-7); // padding-top values from CSS
-        
+        const subpageHeaderTopPosition = isDesktop ? (60 - 2) : (10 - 7); // padding-top values from CSS
+
         // Calculate the distance the header TOP needs to move (negative value to move up)
         const transformDistance = subpageHeaderTopPosition - homeHeaderTopPosition;
-        
+
         return transformDistance;
       }
-      
+
       links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
-          
+
           // Skip if it's the same page, external link, or hash
-          if (href === window.location.pathname || 
-              href.startsWith('http') || 
-              href.startsWith('#') || 
-              href.startsWith('mailto:')) {
+          if (href === window.location.pathname ||
+            href.startsWith('http') ||
+            href.startsWith('#') ||
+            href.startsWith('mailto:')) {
             return;
           }
-          
+
           // Check if we're navigating away from home to a subpage
           const isNavigatingToSubpage = href !== '/' && href !== window.location.origin + '/';
-          
+
           if (isNavigatingToSubpage) {
             // Prevent default navigation
             e.preventDefault();
-            
+
             // Calculate precise transform distance at the moment of click
             const transformDistance = calculateTransformDistance();
-            
+
             // Apply the calculated transform directly to the header
             const header = document.querySelector('section.header');
             if (header) {
               header.style.transform = `translateY(${transformDistance}px)`;
             }
-            
+
             // Add transitioning class for other styles
             document.body.classList.add('transitioning-to-subpage');
-            
+
             // Navigate after animation completes
             setTimeout(() => {
               window.location.href = href;
