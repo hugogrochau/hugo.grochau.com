@@ -20,16 +20,8 @@ section.header .container {
 section.header .container .logo {
   margin: 0;
   margin-right: 20px;
-}
-section.header-home .container .logo {
-  max-width: 100px;
-}
-section.header-home .name-home {
-padding-top: 30px;
-font-size: 40px;
-}
-section.header-home nav ul li {
-font-size: 16px;
+  min-width: 100px;
+  min-height: 100px;
 }
 section.header .content {
   align-items: flex-start;
@@ -50,26 +42,12 @@ color: #666666;
 section.header nav ul li:hover {
 color: #333333;
 }
-section.footer {
-background-color: transparent;
+/* Header icons on desktop */
+section.header .icons a .icon {
+  width: 18px;
+  height: 18px;
 }
-section.footer .container {
-flex-direction: row;
-}
-section.footer .container a {
-margin-left: 3px;
-margin-right: 3px;
-color: #666666;
-}
-section.footer .container a:hover {
-color: #333333;
-}
-section.footer .container a .icon {
-font-size: 18px;
-}
-section.footer .container a .icon.larger {
-font-size: 20px;
-}
+
 section.main .content .front-matter .date,
 section.main .content .front-matter .author,
 section.main .content .front-matter .tags,
@@ -95,10 +73,6 @@ padding: 0 30px;
 }
 section.header {
 padding-top: 60px;
-padding-bottom: 60px;
-}
-section.footer {
-padding-top: 30px;
 padding-bottom: 60px;
 }
 section.main {

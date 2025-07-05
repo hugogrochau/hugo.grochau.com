@@ -153,12 +153,10 @@ body {
   text-rendering: optimizeLegibility !important;
 }
 
-/* Special layout for home page - centered content */
 body.home {
   justify-content: center;
 }
 
-/* Header animation for transitioning from home to subpage */
 section.header {
   transition: transform 0.35s ease-in-out;
 }
@@ -193,6 +191,8 @@ section.header .content {
 }
 section.header .container .logo {
   max-width: 100px;
+  min-width: 100px;
+  min-height: 100px;
   margin-left: -2em;
   margin-right: 20px;
   border-radius: 50%;
@@ -241,40 +241,29 @@ section.header nav ul li {
 section.header nav ul li:hover {
   color: #111111;
 }
-section.footer .container {
-  align-items: center;
-  justify-content: center;
-  flex-direction: column-reverse;
-  width: 100%;
-  text-align: center;
+
+/* Header icons styling */
+section.header .container {
+  position: relative;
 }
-section.footer .container a {
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
+section.header .icons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+section.header .icons a {
   opacity: 0.6;
   transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
-section.footer .container a:first-child {
-  margin-left: 0;
-}
-section.footer .container a:last-child {
-  margin-right: 0;
-}
-section.footer .container a:hover {
+section.header .icons a:hover {
   opacity: 0.8;
 }
-section.footer .container a .icon {
+section.header .icons a .icon {
   width: 16px;
   height: 16px;
-}
-section.footer .container .copyright {
-  flex-grow: 0.5;
-  text-align: start;
-}
-section.footer .container .icons {
-  flex-grow: 0.5;
-  text-align: end;
 }
 section.main .container {
   align-items: center;
@@ -388,9 +377,6 @@ section {
 }
 section.header {
   padding-top: 10px;
-}
-section.header-home {
-  padding-top: 36px;
 }
 section.main {
   padding-top: 32px;
