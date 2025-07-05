@@ -1,18 +1,27 @@
 # hugo.grochau.com
-Personal site
+Personal site deployed on Cloudflare Workers
 
 # Description
-Uses the hugo static site generater
+Uses the Hugo static site generator and deploys to Cloudflare Workers for global edge performance.
 
 # Installing
 * Install `golang` and the `hugo` static site generator
+* Install `node.js` and `npm`
+* Install Wrangler CLI: `npm install -g wrangler`
 
 # Developing
-* run `hugo server` for live reload
+* Install dependencies: `npm install`
+* Run `hugo server` for live reload during development
+* Run `wrangler dev` to test the worker locally
 
 # Deploying
-* Install the Google Cloud SDK with `curl https://sdk.cloud.google.com | bash`
-* Run `gcloud init` and configure your GCS bucket
-* Edit deploy.sh with your GCS bucket
-* Run deploy.sh
+* Login to Cloudflare: `wrangler login`
+* Create a KV namespace: `wrangler kv:namespace create "CACHE"`
+* Update the KV namespace ID in `wrangler.toml`
+* Run `./deploy.sh` or `npm run build:deploy`
+
+# Configuration
+* Edit `wrangler.toml` to configure your worker settings
+* Update the worker name and routes as needed
+* Configure custom domains in the Cloudflare dashboard
 

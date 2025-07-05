@@ -27,3 +27,31 @@ _testmain.go
 *.prof
 
 .env
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Cloudflare Workers
+.wrangler/
+dist/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Hugo resources
+resources/
