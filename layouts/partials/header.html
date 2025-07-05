@@ -11,9 +11,9 @@
 <section class="header">
 {{ end }}
     <div class="container">
-        <a href="{{ .Site.BaseURL }}"><img class="logo" src="{{ .Site.Params.logofile | absURL }}" alt="logo" /></a>
+        <a href="{{ .Site.BaseURL }}" class="no-redirect-animation"><img class="logo" src="{{ .Site.Params.logofile | absURL }}" alt="logo" /></a>
         <div class="content">
-            <a href="{{ .Site.BaseURL }}"><div class="name"><h1>{{ .Site.Title }}</h1></div></a>
+            <a href="{{ .Site.BaseURL }}" class="no-redirect-animation"><div class="name"><h1>{{ .Site.Title }}</h1></div></a>
             <nav>
                 <ul>
                     {{ if ne (len (where .Site.RegularPages "Section" "blog")) 0 }}
