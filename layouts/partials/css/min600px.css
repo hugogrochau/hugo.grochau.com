@@ -9,6 +9,8 @@ max-width: 750px;
 }
 section.header {
 background-color: transparent;
+padding-top: 60px;
+padding-bottom: 60px;
 }
 section.header .container {
   justify-content: flex-start;
@@ -26,7 +28,6 @@ section.header .name {
 color: #333333;
 }
 section.header nav {
-font-size: 16px;
 margin-bottom: 0;
 }
 section.header nav ul {
@@ -66,10 +67,6 @@ margin-bottom: 30px;
 }
 .container {
 padding: 0 30px;
-}
-section.header {
-padding-top: 60px;
-padding-bottom: 60px;
 }
 section.main {
 padding-top: 0;
