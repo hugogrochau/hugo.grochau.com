@@ -66,10 +66,36 @@
             // Add transitioning class for other styles
             document.body.classList.add('transitioning-to-subpage');
 
-            // Navigate after animation completes
-            setTimeout(() => {
-              window.location.href = href;
-            }, 500);
+            // Start preloading the next page immediately
+            fetch(href)
+              .then(response => response.text())
+              .then(html => {
+                // Parse the response HTML
+                const parser = new DOMParser();
+                const newDoc = parser.parseFromString(html, 'text/html');
+                
+                // Wait for animation to complete, then update the page
+                setTimeout(() => {
+                  // Update the page title and main content first
+                  document.body.classList.remove('transitioning-to-subpage');
+                  document.title = newDoc.title;
+                  document.body.innerHTML = newDoc.body.innerHTML;
+                  document.body.className = newDoc.body.className;
+                  
+                  // Update browser history
+                  history.pushState({}, newDoc.title, href);
+                  
+                  // Re-initialize event listeners after page content update
+                  document.dispatchEvent(new Event('DOMContentLoaded'));
+                }, 350);
+              })
+              .catch(error => {
+                // If preloading fails, fall back to normal navigation
+                console.warn('Preload failed, using normal navigation:', error);
+                setTimeout(() => {
+                  window.location.href = href;
+                }, 350);
+              });
           }
         });
       });
