@@ -53,7 +53,7 @@
         {{ end }}
 
         {{ if .Site.Params.goodreads }}
-            <a href="https://www.goodreads.com/user/show/{{ .Site.Params.goodreads }}" target="_blank">
+            <a href="https://www.goodreads.com/{{ .Site.Params.goodreads }}" target="_blank">
                 <img class="icon" src="/img/goodreads.svg" alt="goodreads" />
             </a>
         {{ end }}
