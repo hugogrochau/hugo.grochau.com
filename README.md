@@ -6,7 +6,6 @@ Uses the hugo static site generater
 
 # Installing
 * Install `golang` and the `hugo` static site generator
-* run `git submodule init && git submodule update` to pull the default theme
 
 # Developing
 * run `hugo server` for live reload

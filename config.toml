@@ -9,7 +9,6 @@ languageCode = "en-US"
 layoutdir = "layouts"
 pluralizelisttitles = false
 publishdir = "public"
-theme = "cocoa-eh"
 title = "Hugo Grochau"
 [params]
 dateform = "Jan 2006"

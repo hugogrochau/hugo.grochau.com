@@ -28,13 +28,13 @@
         {{ end }}
 
         {{ if .Site.Params.goodreads }}
-            <a href="https://www.goodreads.com/{{ .Site.Params.linkedin }}" target="_blank">
+            <a href="https://www.goodreads.com/user/show/{{ .Site.Params.goodreads }}" target="_blank">
                 <img class="icon" src="/img/goodreads.svg" alt="goodreads" />
             </a>
         {{ end }}
 
         {{ if .Site.Params.keybase }}
-            <a href="https://www.keybase.io/{{ .Site.Params.keybase }}" target="_blank">
+            <a href="https://keybase.io/{{ .Site.Params.keybase }}" target="_blank">
                 <img class="icon" src="/img/keybase.svg" alt="keybase" />
             </a>
         {{ end }}
