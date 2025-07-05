@@ -216,7 +216,7 @@ section.header nav ul a:last-child {
 section.header nav ul li {
   color: #555555;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
   transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
