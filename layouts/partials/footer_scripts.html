@@ -51,6 +51,9 @@
 
         // Add transitioning class for other styles
         document.body.classList.add('transitioning-to-subpage');
+        
+        // Preload image to avoid flicker
+        new Image().src = "/img/profile.jpg"
 
         // Start preloading the next page immediately
         fetch(href)
