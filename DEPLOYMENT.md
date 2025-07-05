@@ -1,77 +1,52 @@
-# Cloudflare Workers Deployment Guide
+# Cloudflare Pages Deployment Guide
 
 ## Quick Start
 
-1. **Run the setup script:**
+1. **Build your site:**
    ```bash
-   ./setup.sh
+   ./build.sh
    ```
 
-2. **Create KV namespace:**
-   ```bash
-   wrangler kv:namespace create "CACHE"
-   ```
+2. **Connect to Cloudflare Pages:**
+   - Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+   - Connect your Git repository
+   - Configure build settings (see below)
 
-3. **Update wrangler.toml with the namespace ID from step 2**
-
-4. **Deploy:**
+3. **Push to deploy:**
    ```bash
-   ./deploy.sh
+   git push
    ```
 
 ## Detailed Setup
 
 ### Prerequisites
 - Hugo static site generator
-- Node.js and npm
 - Cloudflare account
+- Git repository (GitHub, GitLab, or Bitbucket)
 
 ### Step-by-Step Setup
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+1. **Connect your repository to Cloudflare Pages:**
+   - Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+   - Click "Create a project"
+   - Connect your Git provider
+   - Select your repository
 
-2. **Login to Cloudflare:**
-   ```bash
-   wrangler login
-   ```
+2. **Configure build settings:**
+   - Build command: `hugo --minify`
+   - Build output directory: `public`
+   - Root directory: `/` (leave empty)
+   - Environment variables: `HUGO_VERSION=0.115.0` (or your preferred version)
 
-3. **Create KV namespace for caching:**
-   ```bash
-   wrangler kv:namespace create "CACHE"
-   wrangler kv:namespace create "CACHE" --preview
-   ```
-
-4. **Update wrangler.toml:**
-   - Replace `your-kv-namespace-id` with the production namespace ID
-   - Replace `your-kv-namespace-preview-id` with the preview namespace ID
-
-5. **Test locally:**
-   ```bash
-   npm run dev:worker
-   ```
-
-6. **Deploy to staging:**
-   ```bash
-   npm run build:deploy:staging
-   ```
-
-7. **Deploy to production:**
-   ```bash
-   npm run build:deploy
-   ```
+3. **Deploy:**
+   - Click "Save and Deploy"
+   - Your site will be built and deployed automatically
 
 ## Available Commands
 
-- `npm run dev` - Start Hugo development server
-- `npm run dev:worker` - Start Wrangler development server
-- `npm run build` - Build Hugo site
-- `npm run deploy` - Deploy to Cloudflare Workers
-- `npm run deploy:staging` - Deploy to staging environment
-- `npm run build:deploy` - Build and deploy to production
-- `npm run clean` - Clean build artifacts
+- `hugo server` - Start Hugo development server
+- `./build.sh` - Build the site locally
+- `hugo --minify` - Build with minification
 
 ## Custom Domain Setup
 
@@ -79,44 +54,43 @@
    - Add your domain to your Cloudflare account
    - Update DNS records to point to Cloudflare
 
-2. **Configure routes in wrangler.toml:**
-   ```toml
-   [env.production]
-   routes = [
-     { pattern = "hugo.grochau.com/*", zone_name = "grochau.com" },
-     { pattern = "www.hugo.grochau.com/*", zone_name = "grochau.com" }
-   ]
-   ```
+2. **Configure custom domain in Pages:**
+   - Go to your Pages project
+   - Click "Custom domains"
+   - Add your domain (e.g., `hugo.grochau.com`)
+   - Cloudflare will automatically handle SSL certificates
 
-3. **Deploy with custom domain:**
-   ```bash
-   npm run build:deploy
-   ```
+## CI/CD Integration
+
+Cloudflare Pages automatically deploys when you push to your repository:
+- **Production**: Deploys from your main branch
+- **Preview**: Deploys from pull requests and other branches
+- **Rollbacks**: Easy rollback to previous deployments
 
 ## Environment Variables
 
-For CI/CD (GitHub Actions), set these secrets:
-- `CLOUDFLARE_API_TOKEN` - Your Cloudflare API token
-- `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
+You can set environment variables in the Cloudflare Pages dashboard:
+- `HUGO_VERSION` - Specify Hugo version (e.g., `0.115.0`)
+- `HUGO_ENV` - Set to `production` for production builds
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **KV namespace not found:**
-   - Make sure you've created the KV namespace
-   - Update the namespace IDs in wrangler.toml
+1. **Build errors:**
+   - Check Hugo version compatibility
+   - Verify build command and output directory
+   - Check build logs in Cloudflare Pages dashboard
 
 2. **Domain not working:**
    - Check DNS settings in Cloudflare
-   - Verify route configuration in wrangler.toml
+   - Verify custom domain configuration in Pages
 
-3. **Build errors:**
-   - Run `npm run clean` to clear build artifacts
-   - Check Hugo configuration in config.toml
+3. **404 errors:**
+   - Hugo generates clean URLs by default
+   - Cloudflare Pages handles this automatically
 
 ### Getting Help
 
-- Cloudflare Workers docs: https://developers.cloudflare.com/workers/
+- Cloudflare Pages docs: https://developers.cloudflare.com/pages/
 - Hugo docs: https://gohugo.io/documentation/
-- Wrangler CLI docs: https://developers.cloudflare.com/workers/wrangler/
