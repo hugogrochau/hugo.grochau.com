@@ -2,4 +2,4 @@
 title = "Projects"
 +++
 
-_Here are some personal projects I've developed over the years_
+Here are some personal projects I've developed over the years:
