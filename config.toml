@@ -17,7 +17,6 @@ description = "Hugo Grochau"
 email = "hugo@grochau.com"
 faviconfile = "img/profile.jpg"
 github = "hugogrochau"
-highlightjs = true
 lang = "en"
 linkedin = "hugogrochau"
 logofile = "img/profile.jpg"
