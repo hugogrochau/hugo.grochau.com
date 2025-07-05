@@ -10,9 +10,16 @@
   {{ partial "css/min769px.css" . | safeCSS }}
 </style>
 
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+<!-- Preload critical fonts for faster rendering -->
+<link rel="preload" href="/fonts/Nexa Bold.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/raleway/v34/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrQ.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l521wRZWMf6hPvhPQ.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/ubuntumono/v15/KFOjCneDtsqEr0keqCMhbCc_CsTYl4BOQ3o.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Load fonts synchronously to prevent FOIT (Flash of Invisible Text) -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 {{ if .Site.Params.highlightjs }}
   <style type="text/css" media="screen">
