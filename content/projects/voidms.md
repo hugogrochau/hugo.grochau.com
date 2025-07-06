@@ -3,8 +3,9 @@ date = "2008-08-01T00:00:00+00:00"
 description = "A MapleStory v62 private server"
 tags = ["projects"]
 title = "VoidMS"
-
+heading = "VoidMS"
 +++
+
 VoidMS was a MapleStory (popular MMORPG) private server I developed and ran between 2008-2012.
 
 I forked an existing server implementation called OdinMS and developed bug fixes, new features and gamemodes with the help of my development team (3 people).

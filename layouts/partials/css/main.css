@@ -242,6 +242,13 @@ section.header nav ul li:hover {
   color: #111111;
 }
 
+/* Active navigation item styling */
+section.header nav ul li.active-page {
+  color: #111111;
+  border-bottom: 2px solid #111111;
+  padding-bottom: 2px;
+}
+
 /* Header icons styling */
 section.header .container {
   position: relative;

@@ -3,8 +3,9 @@ date = "2016-12-01T00:00:00+00:00"
 description = "A central geographical hub for Rocket League players"
 tags = ["projects"]
 title = "Rocket League South America"
-
+heading = "Rocket League South America"
 +++
+
 Rocket League South America is a central geographical hub that ranks players and teams
 
 The frontend uses react/redux and material ui
