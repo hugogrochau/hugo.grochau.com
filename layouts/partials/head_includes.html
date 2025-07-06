@@ -1,29 +1,49 @@
-<!-- CSS -->
 
+<!-- Early fetch fonts -->
+<link rel="preload" as="font" href="/fonts/montserrat-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="/fonts/raleway-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+{{/*  <link rel="preload" as="font" href="/fonts/raleway-latin-wght-italic.woff2" type="font/woff2" crossorigin>  */}}
+
+<style>
+  /* Montserrat variable ── roman styles only */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/montserrat-latin-wght-normal.woff2') format('woff2-variations');
+    unicode-range: U+000-5FF;
+    /* basic Latin */
+  }
+
+  /* Raleway variable ── roman */
+  @font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/raleway-latin-wght-normal.woff2') format('woff2-variations');
+    unicode-range: U+000-5FF;
+  }
+
+  /* Raleway variable ── italic */
+  @font-face {
+    font-family: 'Raleway';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/raleway-latin-wght-italic.woff2') format('woff2-variations');
+    unicode-range: U+000-5FF;
+  }
+</style>
+
+<!-- CSS -->
 <style media="screen">
   {{ partial "css/main.css" . | safeCSS }}
 </style>
 <style media="(min-width: 600px)">
   {{ partial "css/min600px.css" . | safeCSS }}
 </style>
-
-<!-- Load fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Montserrat -->
-<link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2"
-  type="font/woff2" crossorigin>
-
-<!-- Raleway -->
-<link rel="preload" as="font" href="https://fonts.gstatic.com/s/raleway/v31/1Ptug8zYS_SKggPNyCMIT5lu.woff2"
-  type="font/woff2" crossorigin>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap"
-  rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-
 
 {{ if .Site.Params.colors }}
   <style type="text/css" media="screen">
