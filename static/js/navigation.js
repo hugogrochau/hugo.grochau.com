@@ -1,87 +1,115 @@
+const pageCache = {};
+
 // Simple header position animation from home to subpages
 document.addEventListener('DOMContentLoaded', function () {
-  // Only run animation logic if we're on the home page
-  const isHomePage = document.body.classList.contains('home');
-  const links = isHomePage ? document.querySelectorAll('a.transition-subpage') : document.querySelectorAll('a.transition-home');
+    // Only run animation logic if we're on the home page
+    const isHomePage = document.body.classList.contains('home');
+    const links = isHomePage ? document.querySelectorAll('a.transition-subpage') : document.querySelectorAll('a.transition-home');
+    if (isHomePage) {
+        const navItems = document.querySelectorAll('body.home section.header nav li');
+        Array.from(navItems).forEach(li => {
+            const pageName = li.textContent.trim().toLocaleLowerCase();
+            fetchPageContent(pageName);
+        });
+    }
 
-  // Function to calculate precise transform distance
-  function calculateTransformDistance() {
-    const isDesktop = window.innerWidth >= 600;
-    const viewportHeight = window.innerHeight;
-    const header = document.querySelector('section.header');
+    // Function to calculate precise transform distance
+    function calculateTransformDistance() {
+        const isDesktop = window.innerWidth >= 600;
+        const viewportHeight = window.innerHeight;
+        const header = document.querySelector('section.header');
 
-    if (!header) return 0;
+        if (!header) return 0;
 
-    // Get the actual header dimensions
-    const headerRect = header.getBoundingClientRect();
-    const headerHeight = headerRect.height;
+        // Get the actual header dimensions
+        const headerRect = header.getBoundingClientRect();
+        const headerHeight = headerRect.height;
 
-    // On home page: header is vertically centered, so its top position is:
-    // (viewport center) - (half of header height)
-    const homeHeaderTopPosition = (viewportHeight / 2) - (headerHeight / 2);
-    const extraOffset = isDesktop ? 0 : -16; // Extra offset for mobile view
+        // On home page: header is vertically centered, so its top position is:
+        // (viewport center) - (half of header height)
+        const homeHeaderTopPosition = (viewportHeight / 2) - (headerHeight / 2);
+        const extraOffset = isDesktop ? 0 : -16; // Extra offset for mobile view
 
-    return (homeHeaderTopPosition + extraOffset) * (isHomePage ? -1 : 1);
-  }
-  console.log({ links })
+        return (homeHeaderTopPosition + extraOffset) * (isHomePage ? -1 : 1);
+    }
 
-  links.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
+    function fetchPageContent(href) {
+        const urlPath = new URL(href, window.location.origin).pathname;
+        const pathSegment = urlPath.split('/').filter(Boolean).pop() || '';
 
-      // Prevent default navigation
-      e.preventDefault();
+        if (pageCache[pathSegment]) {
+            return Promise.resolve(pageCache[pathSegment]);
+        }
 
-      if (!isHomePage) {
-        const mainSection = document.querySelector('section.main');
-        mainSection.innerHTML = ''; // Clear main section content immediately
-      }
+        page = fetch(href)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                return parser.parseFromString(html, 'text/html');
+            });
 
-      // Calculate precise transform distance at the moment of click
-      const transformDistance = calculateTransformDistance();
+        pageCache[pathSegment] = page;
+        return page;
+    }
 
-      // Apply the calculated transform directly to the header
-      const header = document.querySelector('section.header');
-      if (header) {
-        header.style.transform = `translateY(${transformDistance}px)`;
-      }
+    // Function to handle page navigation
+    function navigateToPage(href) {
+        return fetchPageContent(href)
+            .then(newDoc => {
+                // Wait for animation to complete, then update the page
+                setTimeout(() => {
+                    // Update the page title and main content first
+                    document.body.classList.remove('transitioning-to-subpage');
+                    document.title = newDoc.title;
+                    document.body.innerHTML = newDoc.body.innerHTML;
+                    document.body.className = newDoc.body.className;
 
-      // Add transitioning class for other styles
-      document.body.classList.add('transitioning-to-subpage');
-      
-      // Preload image to avoid flicker
-      new Image().src = "/img/profile.jpg"
+                    // Update browser history
+                    history.pushState({}, newDoc.title, href);
 
-      // Start preloading the next page immediately
-      fetch(href)
-        .then(response => response.text())
-        .then(html => {
-          // Parse the response HTML
-          const parser = new DOMParser();
-          const newDoc = parser.parseFromString(html, 'text/html');
+                    // Re-initialize event listeners after page content update
+                    document.dispatchEvent(new Event('DOMContentLoaded'));
+                }, 350);
+            })
+            .catch(error => {
+                console.log({ error })
+                // If preloading fails, fall back to normal navigation
+                console.warn('Preload failed, using normal navigation:', error);
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+    }
 
-          // Wait for animation to complete, then update the page
-          setTimeout(() => {
-            // Update the page title and main content first
-            document.body.classList.remove('transitioning-to-subpage');
-            document.title = newDoc.title;
-            document.body.innerHTML = newDoc.body.innerHTML;
-            document.body.className = newDoc.body.className;
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
 
-            // Update browser history
-            history.pushState({}, newDoc.title, href);
+            // Prevent default navigation
+            e.preventDefault();
 
-            // Re-initialize event listeners after page content update
-            document.dispatchEvent(new Event('DOMContentLoaded'));
-          }, 350);
-        })
-        .catch(error => {
-          // If preloading fails, fall back to normal navigation
-          console.warn('Preload failed, using normal navigation:', error);
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
+            if (!isHomePage) {
+                const mainSection = document.querySelector('section.main');
+                mainSection.innerHTML = ''; // Clear main section content immediately
+            }
+
+            // Calculate precise transform distance at the moment of click
+            const transformDistance = calculateTransformDistance();
+
+            // Apply the calculated transform directly to the header
+            const header = document.querySelector('section.header');
+            if (header) {
+                header.style.transform = `translateY(${transformDistance}px)`;
+            }
+
+            // Add transitioning class for other styles
+            document.body.classList.add('transitioning-to-subpage');
+
+            // Preload image to avoid flicker
+            new Image().src = "/img/profile.jpg"
+
+            // Start preloading the next page immediately
+            navigateToPage(href);
         });
     });
-  });
 });
