@@ -138,17 +138,17 @@ section.header nav ul {
   display: -ms-inline-flex;
   display: inline-flex;
 }
-section.header nav ul a {
+section.header nav ul li {
   margin-left: 6px;
   margin-right: 6px;
 }
-section.header nav ul a:first-child {
+section.header nav ul li:first-child {
   margin-left: 0;
 }
-section.header nav ul a:last-child {
+section.header nav ul li:last-child {
   margin-right: 0;
 }
-section.header nav ul li {
+section.header nav ul li a {
   color: #555555;
   font-weight: 400;
   font-size: 16px;
@@ -156,19 +156,21 @@ section.header nav ul li {
   font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
 }
-section.header nav ul li:hover {
+section.header nav ul li a:hover {
   color: #111111;
 }
 
 /* Active navigation item styling with animated underline */
-section.header nav ul li.active-page {
+section.header nav ul li.active-page a {
   color: #111111;
   position: relative;
   border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
 }
 
-section.header nav ul li.active-page::after {
+section.header nav ul li.active-page a::after {
   content: '';
   position: absolute;
   bottom: 0;

@@ -19,24 +19,24 @@
                 <nav>
                     <ul>
                         {{ if ne (len (where .Site.RegularPages "Section" "blog")) 0 }}
-                        <a href="{{ .Site.BaseURL }}blog/" class="transition-subpage">
-                            <li{{ if eq $ActivePage "blog" }} class="active-page" {{ end }}>Blog</li>
-                        </a>
+                        <li{{ if eq $ActivePage "blog" }} class="active-page" {{ end }}>
+                            <a href="{{ .Site.BaseURL }}blog/" class="transition-subpage">Blog</a>
+                        </li>
                         {{ end }}
                         {{ range .Site.Sections }}
                         {{ range first 1 (where .Pages "Section" "ne" "")}}
                         {{ if ne .Section "blog"}}
-                        <a href="{{ .Section | urlize | absURL }}" class="transition-subpage">
-                            <li{{ if eq $ActivePage (lower .Section) }} class="active-page" {{ end }}>{{ .Section }}</li>
-                        </a>
+                        <li{{ if eq $ActivePage (lower .Section) }} class="active-page" {{ end }}>
+                            <a href="{{ .Section | urlize | absURL }}" class="transition-subpage">{{ .Section }}</a>
+                        </li>
                         {{ end }}
                         {{ end }}
                         {{ end }}
                         {{ range where .Site.RegularPages "Section" ""}}
                         {{ if and (ne .Title "License") (ne .Title "Home")}}
-                        <a href="{{ .Permalink }}" class="transition-subpage">
-                            <li{{ if eq $ActivePage (lower .Title) }} class="active-page" {{ end }}>{{ .Title }}</li>
-                        </a>
+                        <li{{ if eq $ActivePage (lower .Title) }} class="active-page" {{ end }}>
+                            <a href="{{ .Permalink }}" class="transition-subpage">{{ .Title }}</a>
+                        </li>
                         {{ end }}
                         {{ end }}
                     </ul>

@@ -36,11 +36,11 @@ section.header nav ul {
   text-align: left;
 }
 
-section.header nav ul li {
+section.header nav ul li a {
   color: #666666;
 }
 
-section.header nav ul li:hover {
+section.header nav ul li a:hover {
   color: #333333;
 }
 
