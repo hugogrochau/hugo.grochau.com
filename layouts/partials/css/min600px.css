@@ -1,44 +1,55 @@
 .non-narrow.zero-top-spacing {
-padding-top: 0 !important;
+  padding-top: 0 !important;
 }
+
 section {
-padding: 0 16px;
-margin-left: 100px;
-margin-right: 100px;
-max-width: 750px;
+  padding: 0 16px;
+  margin-left: 100px;
+  margin-right: 100px;
+  max-width: 750px;
 }
+
 section.header {
-background-color: transparent;
-padding-top: 60px;
-padding-bottom: 60px;
+  background-color: transparent;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
+
 section.header .container {
   justify-content: flex-start;
 }
+
 section.header .container .logo {
   margin: 0;
   margin-right: 20px;
   min-width: 100px;
   min-height: 100px;
 }
+
 section.header .content {
   align-items: flex-start;
 }
+
 section.header .name {
-color: #333333;
+  color: #333333;
 }
+
 section.header nav {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
+
 section.header nav ul {
-text-align: left;
+  text-align: left;
 }
+
 section.header nav ul li {
-color: #666666;
+  color: #666666;
 }
+
 section.header nav ul li:hover {
-color: #333333;
+  color: #333333;
 }
+
 /* Header icons on desktop */
 section.header .icons a .icon {
   width: 18px;
@@ -50,46 +61,58 @@ section.main .content .front-matter .author,
 section.main .content .front-matter .tags,
 section.main .content .front-matter .word-count,
 section.main .content .front-matter .reading-time .middot {
-display: initial;
+  display: initial;
 }
+
 section.main .container.f04 {
   justify-content: flex-start;
 }
+
 section.main .container.f04 .content {
   align-items: flex-start;
 }
+
 section.main .container.f04 .content .num {
-margin: 0 0 10px 0;
-font-size: 32px;
+  margin: 0 0 10px 0;
+  font-size: 32px;
 }
+
 section.main .container.f04 .content .detail {
-margin-bottom: 30px;
+  margin-bottom: 30px;
 }
+
 .container {
-padding: 0 30px;
+  padding: 0 30px;
 }
+
 section.main {
-padding-top: 0;
+  padding-top: 0;
 }
+
 section.main .container .content .post-item {
-display: flex;
-list-style: none;
-padding-left: 1.5em;
+  display: flex;
+  list-style: none;
+  padding-left: 1.5em;
 }
+
 section.main .container .content .post-item .meta {
-display: block;
+  display: block;
 }
+
 section.main.post {
-padding-top: 60px;
-padding-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
+
 section.main .content .markdown blockquote {
-padding-right: 5rem;
-padding-left: 1.25rem;
+  padding-right: 5rem;
+  padding-left: 1.25rem;
 }
+
 section.main .content .navigation {
   flex-direction: row;
 }
+
 section.main .content .navigation div {
-margin-top: 0em;
+  margin-top: 0em;
 }
