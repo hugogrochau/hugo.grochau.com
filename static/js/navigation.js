@@ -32,58 +32,24 @@ document.addEventListener('DOMContentLoaded', function () {
         return homeHeaderTopPosition * (isHomePage ? -1 : 1);
     }
 
-    function fetchPageContent(href) {
+    async function fetchPageContent(href) {
         const urlPath = new URL(href, window.location.origin).pathname;
         const pathSegment = urlPath.split('/').filter(Boolean).pop() || '';
 
         if (pageCache[pathSegment]) {
-            return Promise.resolve(pageCache[pathSegment]);
+            return pageCache[pathSegment];
         }
 
-        page = fetch(href)
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                return parser.parseFromString(html, 'text/html');
-            });
+        const response = await fetch(href)
+        const parser = new DOMParser();
+        const page = parser.parseFromString(await response.text(), 'text/html');
 
         pageCache[pathSegment] = page;
         return page;
     }
 
-    // Function to handle page navigation
-    function navigateToPage(href) {
-        return fetchPageContent(href)
-            .then(newDoc => {
-                // Wait for animation to complete, then update the page
-                setTimeout(() => {
-                    // Update the page title and main content first
-                    document.body.classList.remove('transitioning-to-subpage');
-                    document.title = newDoc.title;
-                    document.body.innerHTML = newDoc.body.innerHTML;
-                    document.body.className = newDoc.body.className;
-
-                    // Update browser history
-                    history.pushState({}, newDoc.title, href);
-
-                    // Re-initialize event listeners after page content update
-                    document.dispatchEvent(new Event('DOMContentLoaded'));
-                }, 350);
-            })
-            .catch(error => {
-                console.log({ error })
-                // If preloading fails, fall back to normal navigation
-                console.warn('Preload failed, using normal navigation:', error);
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-            });
-    }
-
     links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-
+        link.addEventListener('click', async function (e) {
             // Prevent default navigation
             e.preventDefault();
 
@@ -91,6 +57,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const mainSection = document.querySelector('section.main');
                 mainSection.innerHTML = ''; // Clear main section content immediately
             }
+
+            // Start preloading the next page 
+            const href = this.getAttribute('href');
+            newDocPromise = fetchPageContent(href);
+            // Preload image to avoid flicker
+            new Image().src = "/img/profile.jpg"
 
             // Calculate precise transform distance at the moment of click
             const transformDistance = calculateTransformDistance();
@@ -104,11 +76,32 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add transitioning class for other styles
             document.body.classList.add('transitioning-to-subpage');
 
-            // Preload image to avoid flicker
-            new Image().src = "/img/profile.jpg"
+            const startTime = Date.now();
+            let newDoc = null;
+            try {
+                newDoc = await newDocPromise
+            } catch (error) {
+                console.log({ error })
+                // If preloading fails, fallback to normal navigation
+                window.location.href = href;
+                return;
+            }
+            const elapsed = Date.now() - startTime;
+            const delay = Math.max(0, 350 - elapsed);
+            // Wait for animation to complete, then update the page
+            setTimeout(() => {
+                // Update the page title and main content first
+                document.body.classList.remove('transitioning-to-subpage');
+                document.title = newDoc.title;
+                document.body.innerHTML = newDoc.body.innerHTML;
+                document.body.className = newDoc.body.className;
 
-            // Start preloading the next page immediately
-            navigateToPage(href);
-        });
+                // Update browser history
+                history.pushState({}, newDoc.title, href);
+
+                // Re-initialize event listeners after page content update
+                document.dispatchEvent(new Event('DOMContentLoaded'));
+            }, delay);
+        })
     });
 });
