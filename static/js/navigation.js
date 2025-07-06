@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // On home page: header is vertically centered, so its top position is:
         // (viewport center) - (half of header height)
         const homeHeaderTopPosition = (viewportHeight / 2) - (headerHeight / 2);
-        const extraOffset = isDesktop ? 0 : -16; // Extra offset for mobile view
 
-        return (homeHeaderTopPosition + extraOffset) * (isHomePage ? -1 : 1);
+        return homeHeaderTopPosition * (isHomePage ? -1 : 1);
     }
 
     function fetchPageContent(href) {
