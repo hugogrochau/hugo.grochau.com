@@ -118,7 +118,7 @@ section.header .container .logo {
 section.header .name {
   padding-top: 20px;
   font-size: 28px;
-  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 800;
   letter-spacing: -0.005rem;
   text-transform: uppercase;
@@ -347,8 +347,8 @@ section.main .content .markdown {
   font-size: 1.1em;
   line-height: 1.75em;
   color: #313537;
-  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
-  font-weight: 300;
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
 }
 section.main .content .markdown h1,
 section.main .content .markdown h2,

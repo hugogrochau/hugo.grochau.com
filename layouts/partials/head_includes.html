@@ -7,10 +7,23 @@
   {{ partial "css/min600px.css" . | safeCSS }}
 </style>
 
+<!-- Load fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
-<!-- <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet"> -->
+<!-- Montserrat -->
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2"
+  type="font/woff2" crossorigin>
+
+<!-- Raleway -->
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/raleway/v31/1Ptug8zYS_SKggPNyCMIT5lu.woff2"
+  type="font/woff2" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
 
 {{ if .Site.Params.colors }}
   <style type="text/css" media="screen">
