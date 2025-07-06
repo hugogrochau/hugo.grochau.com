@@ -24,24 +24,12 @@ section.header .container .logo {
   min-height: 100px;
 }
 
-section.header .name {
-  color: #333333;
-}
-
 section.header nav {
   margin-bottom: 0;
 }
 
 section.header nav ul {
   text-align: left;
-}
-
-section.header nav ul li a {
-  color: #666666;
-}
-
-section.header nav ul li a:hover {
-  color: #333333;
 }
 
 /* Header icons on desktop */
