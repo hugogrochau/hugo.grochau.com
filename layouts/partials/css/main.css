@@ -383,10 +383,11 @@ section {
   padding: 0 16px;
 }
 section.header {
-  padding-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 16px;
 }
 section.main {
-  padding-top: 32px;
+  padding-top: 0;
 }
 section.main .container .content .post-item .meta {
     display: block;

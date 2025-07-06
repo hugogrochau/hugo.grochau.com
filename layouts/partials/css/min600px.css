@@ -11,8 +11,6 @@ section {
 
 section.header {
   background-color: transparent;
-  padding-top: 60px;
-  padding-bottom: 60px;
 }
 
 section.header .container {
@@ -79,10 +77,6 @@ section.main .container.f04 .content .detail {
 
 .container {
   padding: 0 30px;
-}
-
-section.main {
-  padding-top: 0;
 }
 
 section.main .container .content .post-item {
