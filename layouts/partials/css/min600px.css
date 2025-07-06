@@ -26,10 +26,6 @@ section.header .container .logo {
   min-height: 100px;
 }
 
-section.header .content {
-  align-items: flex-start;
-}
-
 section.header .name {
   color: #333333;
 }

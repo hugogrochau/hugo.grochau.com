@@ -187,7 +187,7 @@ section.header .container {
 section.header .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 section.header .container .logo {
   max-width: 100px;
