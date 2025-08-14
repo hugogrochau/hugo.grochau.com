@@ -14,6 +14,9 @@
     .print\:break-before, .break-before-page { break-before: page; }
     .print\:avoid-break, .no-break-inside { break-inside: avoid; }
     .tight-print { padding: 16px !important; border-radius: 14px !important; box-shadow: none !important; }
+    /* Funnel fix: remove gradient/shadow layer to avoid rectangular artifacts in PDFs */
+    .funnel-card { background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+    .funnel-inner { background: #111827 !important; border: 1px solid rgba(255,255,255,0.12) !important; }
   }
 </style>
 </head>
@@ -246,8 +249,8 @@
         <ol role="list" aria-label="Selection funnel" class="flex flex-col gap-3">
           <!-- Analyzed companies ~60 -->
           <li class="w-full mx-auto">
-            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)]">
-              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between">
+            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)] funnel-card">
+              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between funnel-inner">
                 <span class="font-medium text-slate-100">Analyzed companies</span>
                 <span class="text-xl font-semibold tabular-nums text-white">~60</span>
               </div>
@@ -256,8 +259,8 @@
 
           <!-- Initial call ~20 -->
           <li class="w-[85%] sm:w-[80%] md:w-[70%] mx-auto transition-all">
-            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)]">
-              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between">
+            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)] funnel-card">
+              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between funnel-inner">
                 <span class="font-medium text-slate-100">Initial call</span>
                 <span class="text-xl font-semibold tabular-nums text-white">~20</span>
               </div>
@@ -266,8 +269,8 @@
 
           <!-- 8-week project ~5 -->
           <li class="w-[65%] sm:w-[55%] md:w-[45%] mx-auto transition-all">
-            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)]">
-              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between">
+            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)] funnel-card">
+              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between funnel-inner">
                 <span class="font-medium text-slate-100">8‑week project</span>
                 <span class="text-xl font-semibold tabular-nums text-white">~5</span>
               </div>
@@ -276,8 +279,8 @@
 
           <!-- 2-year partnership 2–3 -->
           <li class="w-[50%] sm:w-[42%] md:w-[34%] mx-auto transition-all">
-            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)]">
-              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between">
+            <div class="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 shadow-[0_6px_18px_rgba(125,211,252,.12)] funnel-card">
+              <div class="rounded-2xl bg-white/5 px-6 py-4 flex items-center justify-between funnel-inner">
                 <span class="font-medium text-slate-100">2‑year partnership</span>
                 <span class="text-xl font-semibold tabular-nums text-white">2–3</span>
               </div>
